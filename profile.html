@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Profile</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="gamification.css">
+  <script type="module" src="profile.mjs"></script>
+</head>
+<body class="site profile-page gamification-page">
+  <a class="skip-link" href="#main-content">Skip to profile</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <div id="profile-root">
+      <header class="library-header"><div><p class="eyebrow">LOCAL PROFILE</p><h1 id="profile-name">Your profile</h1></div><a class="session-notice" href="setup.html#backup-heading">Saved here · backups</a></header>
+      <p class="gamification-intro">Your viewing, at your pace. This profile stays in this browser; no account or device sync.</p>
+      <p id="profile-feedback" class="flow-feedback" role="status" aria-live="polite">Loading local progress…</p>
+      <a id="profile-recovery" href="setup.html#backup-heading" hidden>Open Settings to export recoverable data or restore a backup</a>
+      <form id="profile-form" class="profile-form">
+        <label for="display-name">Display name <span class="note">(optional)</span></label>
+        <div class="profile-name-controls"><input id="display-name" name="displayName" type="text" maxlength="60" autocomplete="off" aria-describedby="profile-name-note"><button id="save-profile" type="submit" disabled>Save name</button></div>
+        <p class="note" id="profile-name-note">Leave blank to use “Your profile”. This is not a public account.</p>
+      </form>
+      <div id="profile-data" hidden>
+        <section class="profile-progress gamification-panel" aria-labelledby="progress-heading">
+          <div class="section-heading"><h2 id="progress-heading">Your progress</h2><a href="achievements.html">All achievements →</a></div>
+          <p id="profile-level" class="profile-level">—</p>
+          <label class="sr-only" for="level-progress">Progress towards the next level</label><progress id="level-progress" max="500" value="0"></progress>
+          <p id="level-detail" class="note"></p>
+          <dl class="profile-stats"><div><dt>Total XP</dt><dd id="total-xp">—</dd></div><div><dt>Watched movies</dt><dd id="watched-movies">—</dd></div><div><dt>Earned badges</dt><dd id="earned-badges">—</dd></div></dl>
+          <p class="note">100 XP per distinct recognised watched movie. 500 XP between levels. Series do not earn completion XP; a Watched series does not prove every episode was completed.</p>
+          <p class="note correction-notice">Correcting a mistaken Watched entry recalculates XP and badges; your level may decrease. Honest corrections never create extra credit.</p>
+        </section>
+        <section class="history-recognition gamification-panel" aria-labelledby="recognition-heading">
+          <h2 id="recognition-heading">Recognise your movie history</h2>
+          <p class="note">Existing watched movies already count towards relevant badges. Review before granting their one-time XP credit. Recognition records today, not an invented watch date.</p>
+          <p id="recognition-pending"></p>
+          <button id="preview-recognition" type="button" class="quiet-button" disabled>Review history XP</button>
+          <section id="recognition-preview" class="recognition-preview restore-preview" aria-labelledby="recognition-preview-heading" hidden>
+            <h3 id="recognition-preview-heading" tabindex="-1">Review history recognition</h3>
+            <p id="recognition-summary"></p>
+            <ul id="recognition-titles" aria-label="Movies to recognise"></ul>
+            <p class="note">Only these currently eligible movies receive credit. No viewing statuses change.</p>
+            <div class="actions"><button id="confirm-recognition" type="button">Recognise movies</button><button id="cancel-recognition" class="quiet-button" type="button">Cancel</button></div>
+          </section>
+        </section>
+        <section class="profile-links gamification-panel" aria-labelledby="explore-progress-heading"><h2 id="explore-progress-heading">Keep exploring</h2><div class="actions"><a class="secondary-button" href="achievements.html">Achievements</a><a class="secondary-button" id="followed-collections" href="collections.html">Collections</a><a class="secondary-button" href="library.html">Your library</a></div></section>
+      </div>
+      <noscript><p>JavaScript is required to read your local profile. Your saved data has not changed.</p></noscript>
+    </div>
+  </main>
+</body>
+</html>

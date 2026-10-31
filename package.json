@@ -1,0 +1,16 @@
+{
+  "name": "watchbible-local",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test *.test.mjs",
+    "check": "node scripts/verify.mjs --syntax",
+    "test:python": "python3 -m unittest discover -s . -p '*_test.py'",
+    "verify": "node scripts/verify.mjs",
+    "qa": "node verification-server.mjs"
+  }
+}

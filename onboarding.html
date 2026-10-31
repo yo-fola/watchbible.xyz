@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Preferences</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="title-panel.css">
+  <script type="module" src="onboarding.mjs"></script>
+</head>
+<body class="site onboarding-page">
+  <a class="skip-link" href="#main-content">Skip to preferences</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <header class="library-header"><h1 id="onboarding-heading">Your interests</h1><span id="onboarding-step" class="note">1 of 2</span></header>
+    <p id="onboarding-feedback" class="discovery-feedback" role="status" aria-live="polite"></p>
+    <a id="onboarding-recovery" href="setup.html" hidden>Open Settings to recover saved data</a>
+    <section id="preferences-stage" aria-label="Preferences">
+      <form id="preferences-form" class="preferences-form">
+        <label for="preference-region">Country<select id="preference-region"><option value="NG">Nigeria</option><option value="US">United States</option><option value="GB">United Kingdom</option></select></label>
+        <p id="region-note" class="note">Country is used for watch options, not a guarantee of service availability.</p>
+        <fieldset><legend>What do you watch?</legend><div class="preference-options"><label class="check-label"><input type="checkbox" name="format" value="movie"> Movies</label><label class="check-label"><input type="checkbox" name="format" value="series"> Series</label></div></fieldset>
+        <fieldset><legend>Genres <span class="note">optional</span></legend><div id="genre-chips" class="genre-chips" role="group" aria-label="Genre interests"></div><button id="genres-retry" class="quiet-button" type="button" hidden>Retry genre list</button></fieldset>
+        <div class="actions"><button id="preferences-next" type="submit">Choose some titles</button><button id="preferences-skip" class="quiet-button" type="button">Start with preferences only</button></div>
+        <p class="note">Nothing is saved until you finish. Existing library titles are kept.</p>
+      </form>
+    </section>
+    <section id="starter-stage" aria-label="Starter titles" hidden>
+      <h2 id="starter-heading" tabindex="-1">A few starting points</h2>
+      <p class="note">Choose any number, or none. Watch later shows interest; Watched does not mean liked. Choices stay pending until Finish.</p>
+      <p id="starter-count" class="note" role="status"></p>
+      <button id="starter-retry" class="quiet-button" type="button" hidden>Retry picks</button>
+      <div id="starter-grid" class="library-grid discovery-grid"></div>
+      <div class="actions onboarding-actions"><button id="starter-back" class="quiet-button" type="button">Back</button><button id="starter-more" class="quiet-button" type="button">Get more</button><button id="onboarding-finish" type="button">Finish</button></div>
+      <p class="note">Get more keeps staged choices. Click a selected choice again to undo it.</p>
+    </section>
+  </main>
+</body>
+</html>

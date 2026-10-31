@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Collections</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="title-panel.css">
+  <link rel="stylesheet" href="gamification.css">
+  <script type="module" src="collections.mjs"></script>
+</head>
+<body class="site collections-page gamification-page">
+  <a class="skip-link" href="#main-content">Skip to collections</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <div id="collections-root">
+      <header class="library-header"><h1 id="collections-heading">Collections</h1><a href="profile.html" class="secondary-button">Your profile</a></header>
+      <p id="collections-feedback" class="flow-feedback" role="status" aria-live="polite">Loading local progress…</p>
+      <a id="collections-recovery" href="setup.html#backup-heading" hidden>Open Settings to export recoverable data or restore a backup</a>
+      <div id="collections-data" hidden>
+        <section id="collections-overview">
+          <p class="gamification-intro">Explore a defined set. Following never adds movies to your library.</p>
+          <div class="collection-filters" role="group" aria-label="Filter collections">
+            <label for="collection-status">Progress<select id="collection-status"><option value="">All</option><option value="in-progress">In progress</option><option value="complete">Complete</option></select></label>
+            <label class="check-label"><input type="checkbox" id="collections-followed">Followed</label>
+          </div>
+          <p id="collections-count" class="flow-feedback" role="status"></p>
+          <div id="collections-list" class="collections-list"></div>
+        </section>
+        <section id="collection-detail" hidden>
+          <a href="collections.html" class="collection-back">← All collections</a>
+          <p id="collection-description" class="gamification-intro"></p>
+          <div class="collection-summary"><p id="collection-progress" role="status" aria-live="polite"></p><button id="collection-follow" class="quiet-button" type="button" data-follow>Follow collection</button></div>
+          <progress id="collection-meter" max="100" value="0" aria-label="Collection watched progress"></progress>
+          <div class="collection-filters"><label for="collection-view">Show<select id="collection-view"><option value="">All</option><option value="unwatched">Unwatched</option><option value="watched">Watched</option></select></label><p class="note">Release order</p></div>
+          <div id="collection-grid" class="library-grid"></div>
+          <p id="collection-source" class="note"></p>
+        </section>
+        <div id="collections-empty" class="empty-library" hidden><h2 id="collections-empty-heading">No collections match</h2><p id="collections-empty-copy">Try another filter.</p><div class="actions"><button id="reset-collection-filters" type="button" class="quiet-button">Reset filters</button><a href="collections.html">Browse collections →</a></div></div>
+      </div>
+      <noscript><p>JavaScript is required to read local collection progress. Your saved data has not changed.</p></noscript>
+    </div>
+  </main>
+</body>
+</html>

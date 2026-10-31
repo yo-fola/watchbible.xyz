@@ -1,0 +1,28 @@
+name: Local verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: macos-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [24, 26]
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      NPM_CONFIG_UPDATE_NOTIFIER: 'false'
+    steps:
+      # Public release tag v4.3.0, verified using git ls-remote.
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+        with:
+          persist-credentials: false
+      # Public release tag v4.4.0, verified using git ls-remote.
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: ${{ matrix.node }}
+      # No dependencies to install. Tests use synthetic fixtures, not live TMDB.
+      - run: npm run verify

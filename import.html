@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Import titles</title>
+  <link rel="stylesheet" href="theme.css">
+  <script type="module" src="review.mjs"></script>
+</head>
+<body class="site import-page">
+  <a class="skip-link" href="#main-content">Skip to import</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html" aria-current="page">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <header class="library-header"><div class="heading-group"><h1>Import</h1><a id="draft-state" class="session-notice" href="setup.html" title="Pending review stays in this browser, not confirmed library history.">Local draft</a></div></header>
+    <section class="import-panel" aria-labelledby="input-heading">
+      <label class="sr-only" id="input-heading" for="title-list">Titles, one per line</label>
+      <textarea id="title-list" rows="6" aria-describedby="input-help" placeholder="Titles, one per line"></textarea>
+      <p class="note" id="input-help">[x] Watched · [ ] Watch later</p>
+      <div class="actions">
+        <label class="file-button" for="text-file">Upload TXT<input class="sr-only" id="text-file" type="file" accept=".txt,text/plain"></label>
+        <button class="quiet-button" id="clear" type="button">Clear</button>
+      </div>
+
+    </section>
+    <section class="import-panel" aria-labelledby="review-heading">
+      <div class="review-heading"><h2 id="review-heading">Review</h2><span class="muted">Unmatched</span></div>
+      <p id="summary" role="status" aria-live="polite">No titles</p>
+      <div id="review-list"></div>
+    </section>
+    <section aria-labelledby="import-heading" class="next-step">
+      <span class="note" id="import-heading">Review only</span>
+      <button type="button" disabled title="TXT matching and final import are not implemented yet">Import</button>
+    </section>
+
+  </main>
+</body>
+</html>

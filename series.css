@@ -1,0 +1,49 @@
+/* Episode-first catalogue browser: graphite surfaces, amber explicit actions. */
+.series-page main { max-width: 1040px; }
+.series-back { display: inline-flex; align-items: center; min-height: 44px; color: var(--muted); font-size: .8rem; margin-bottom: 18px; text-decoration: none; }
+.series-header { display: grid; grid-template-columns: 112px minmax(0,1fr); gap: 24px; align-items: start; padding-bottom: 30px; }
+.series-poster { width: 112px; aspect-ratio: 2/3; border-radius: 8px; overflow: hidden; background: var(--surface); }
+.series-poster img { width: 100%; height: 100%; object-fit: cover; }
+.series-poster .series-image-fallback { padding: 12px; }
+.series-header h1 { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.15; margin: 5px 0 12px; overflow-wrap: anywhere; }
+.series-kicker { text-transform: uppercase; letter-spacing: .15em; color: var(--accent); font-size: .65rem; }
+.series-overview { max-width: 70ch; color: var(--muted); font-size: .85rem; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.series-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 28px; align-items: end; padding: 22px 0; border-top: 1px solid var(--line); }
+.series-toolbar label { display: grid; gap: 8px; font-size: .75rem; color: var(--muted); min-width: 180px; }
+#series-seasons { width: auto; min-width: 180px; max-width: 100%; }
+#season-progress { color: var(--accent); font-size: .8rem; padding-bottom: 10px; }
+.series-notice { color: var(--muted); font-size: .75rem; margin: 0 0 18px; }
+.series-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; color: var(--muted); margin: 14px 0; }
+.series-feedback:empty { display: none; }
+.series-feedback[data-error="true"] { color: #f4bdad; }
+.episode-row { display: grid; grid-template-columns: 224px minmax(0,1fr); gap: 24px; padding: 25px 0; border-top: 1px solid var(--line); min-width: 0; }
+.episode-still { aspect-ratio: 16/9; background: var(--surface); border-radius: 7px; overflow: hidden; align-self: start; position: relative; }
+.episode-still img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.series-image-fallback { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: .7rem; text-align: center; }
+.episode-info { min-width: 0; }
+.episode-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.episode-heading h3 { font-size: 1rem; font-weight: 600; overflow-wrap: anywhere; }
+.episode-runtime { flex-shrink: 0; color: var(--muted); font-size: .75rem; }
+.episode-number { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 8px; }
+.episode-overview { color: var(--muted); font-size: .8rem; line-height: 1.65; margin-top: 9px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.episode-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.episode-actions button { min-height: 44px; padding: 8px 12px; background: transparent; border: 1px solid var(--line); color: var(--ink); font-size: .75rem; font-weight: 500; }
+.episode-actions button[aria-pressed="true"] { border-color: #a27d49; background: #efb45e13; color: var(--accent); }
+.episode-actions button[data-episode-status="clear"] { color: var(--muted); border-color: transparent; padding-inline: 6px; }
+.episode-actions button:disabled { color: var(--muted); opacity: .55; }
+.episode-availability { color: var(--muted); font-size: .7rem; margin-top: 10px; }
+.series-footer { border-top: 1px solid var(--line); padding-top: 24px; margin-top: 24px; color: var(--muted); font-size: .7rem; line-height: 1.8; }
+@media (max-width: 600px) {
+  .series-header { grid-template-columns: 76px minmax(0,1fr); gap: 16px; padding-bottom: 24px; }
+  .series-poster { width: 76px; }
+  .series-header h1 { font-size: 1.5rem; }
+  .series-overview { font-size: .75rem; }
+  .episode-row { grid-template-columns: 112px minmax(0,1fr); gap: 14px; padding: 20px 0; }
+  .episode-heading { flex-direction: column; gap: 4px; }
+  .episode-heading h3 { font-size: .9rem; }
+  .episode-overview { font-size: .75rem; }
+  .episode-actions { margin-left: -126px; padding-top: 8px; gap: 7px; }
+  .episode-actions button { padding-inline: 10px; }
+  .episode-availability { margin-left: -126px; }
+  #season-progress { padding-bottom: 0; }
+}

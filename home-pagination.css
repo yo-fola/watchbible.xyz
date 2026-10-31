@@ -1,0 +1,42 @@
+/* Extend the existing exploration surface without changing card visuals. */
+#home-refresh { flex: 0 0 auto; }
+#home-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 32px; }
+#home-page-numbers { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }
+#home-page-numbers button { min-width: 44px; min-height: 44px; padding: 8px; }
+#home-page-numbers span { color: var(--muted); padding: 0 3px; }
+#home-page-numbers button[aria-current="page"] { color: var(--accent); border-color: #a27d49; background: #efb45e13; }
+#home-heading:focus { outline: none; }
+.home-page .library-header { flex-wrap: wrap; gap: 14px; }
+.home-header-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+#what-to-watch { white-space: nowrap; }
+#watch-picker { width: min(720px, calc(100% - 32px)); padding: 28px; }
+#watch-picker-heading:focus { outline: none; }
+#watch-picker-caption { max-width: 62ch; line-height: 1.7; }
+.watch-picker-filters { margin: 16px 0 20px; color: var(--muted); font-size: .8rem; }
+.watch-picker-filters > summary { padding: 10px 0; cursor: pointer; width: fit-content; }
+.watch-picker-filter-row { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; padding: 12px 0 4px; }
+.watch-picker-filter-row label { display: grid; gap: 7px; flex: 1 1 180px; }
+.watch-picker-filter-row button { flex: 0 0 auto; }
+#watch-picker-status { color: var(--muted); font-size: .8rem; line-height: 1.6; margin: 14px 0; }
+#watch-picker-status:empty { display: none; }
+#watch-picker-result { min-width: 0; }
+#watch-picker-result .library-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: start; gap: 24px; }
+#watch-picker-result .card-body { padding: 0; }
+#watch-picker-result .card-body h3 { font-size: 1.35rem; line-height: 1.3; margin-bottom: 12px; }
+#watch-picker-result .recommendation-reason { color: var(--accent); font-size: .82rem; margin: 12px 0; }
+#watch-picker-result .watch-picker-overview { color: var(--muted); font-size: .85rem; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+#watch-picker-result a:not(.poster-button) { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); margin-top: 12px; }
+.watch-picker-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.watch-picker-credit { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; font-size: .7rem; }
+@media (max-width: 480px) {
+  #home-pagination { gap: 8px; }
+  #home-page-numbers { flex: 1 1 100%; order: -1; gap: 4px; }
+  #home-prev, #home-next { flex: 1; }
+  .home-header-actions { width: 100%; }
+  #what-to-watch { flex: 1; }
+  #watch-picker { padding: 20px; }
+  #watch-picker-result .library-card { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  #watch-picker-result .poster-button { width: 140px; }
+  .watch-picker-filter-row label { flex-basis: 100%; }
+  .watch-picker-actions > button { flex: 1; }
+}

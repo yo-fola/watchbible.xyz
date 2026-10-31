@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Settings</title>
+  <link rel="stylesheet" href="theme.css">
+  <script type="module" src="settings.mjs"></script>
+</head>
+<body class="site setup-page">
+  <a class="skip-link" href="#main-content">Skip to setup</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html" aria-current="page">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <header class="library-header"><h1>Settings</h1><button id="test-tmdb" type="button" disabled>Test connection</button></header>
+    <dl class="settings-list"><div><dt>Storage</dt><dd id="storage-state">Checking…</dd></div><div><dt>TMDB</dt><dd id="tmdb-status" role="status" aria-live="polite">Checking…</dd></div><div><dt>Preferences</dt><dd><a href="onboarding.html?edit=1">Edit taste & region ↗</a></dd></div><div><dt>Library</dt><dd id="saved-count">—</dd></div><div><dt>Hidden picks</dt><dd id="hidden-count">—</dd></div><div><dt>TXT import</dt><dd>Saved draft · review only</dd></div><div><dt>IMDb</dt><dd>Not connected</dd></div><div><dt>Domain</dt><dd>watchbible.xyz <span class="muted">· planned</span></dd></div></dl>
+    <p class="note" id="tmdb-feedback" role="status" aria-live="polite"></p>
+    <section class="data-tools" aria-labelledby="backup-heading"><h2 id="backup-heading">Your data</h2><p class="note">Saved on this browser, not synced. Export a backup before clearing browser data or switching browsers.</p><div class="actions"><button id="export-data" type="button" class="quiet-button">Export JSON</button><label class="file-button" for="restore-file">Restore JSON<input class="sr-only" id="restore-file" type="file" accept=".json,application/json"></label></div><p id="data-feedback" class="flow-feedback" role="status" aria-live="polite"></p><div id="restore-preview" class="restore-preview" hidden><p id="restore-summary"></p><p class="note">Replaces this browser’s library, preferences and import draft. Export first if you need the current data.</p><div class="actions"><button id="confirm-restore" type="button">Replace local data</button><button id="cancel-restore" class="quiet-button" type="button">Cancel</button></div></div></section>
+    <details class="settings-details"><summary>Privacy & API setup</summary><p>Library, preferences and pending TXT edits stay in this browser’s local storage. No account or device sync. Use one editing tab at a time. No Apple Notes access.</p><p>Search queries, selected public catalogue IDs and chosen genre filters are sent to TMDB for matching, details and recommendations. Your raw TXT note, statuses, likes and backup files are not uploaded. Posters load from TMDB.</p><p>The token stays in server memory; no credential file is created. Keep credentials out of chat and browser code.</p><p>Streaming listings depend on region and may change. Missing data does not prove a title is unavailable. Watch options links open TMDB’s regional page, not a guessed streaming URL.</p><a href="https://developer.themoviedb.org/docs/authentication-application" target="_blank" rel="noopener noreferrer">TMDB documentation ↗</a></details>
+    <details id="credits" class="settings-details tmdb-credit"><summary>Credits</summary><a href="https://www.themoviedb.org" target="_blank" rel="noopener noreferrer"><img src="assets/tmdb.svg" alt="The Movie Database (TMDB)" width="80"></a><p>This application uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB.</p><p>Streaming availability by <a href="https://www.justwatch.com/" target="_blank" rel="noopener noreferrer">JustWatch</a>.</p></details>
+  </main>
+</body>
+</html>

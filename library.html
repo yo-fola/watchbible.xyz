@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Library</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="title-panel.css">
+  <script type="module" src="library.mjs"></script>
+</head>
+<body class="site library-page">
+  <a class="skip-link" href="#main-content">Skip to library</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html" aria-current="page">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <header class="library-header"><div class="heading-group"><h1 id="library-heading">Library</h1><a id="storage-notice" class="session-notice" href="setup.html" title="Local to this browser. Export a backup in Settings.">Saved here</a></div><div class="library-header-actions"><button id="add-liked-title" class="secondary-button" type="button">Add likes</button><button id="add-title" type="button"><span aria-hidden="true">+</span> Add title</button></div></header>
+    <p id="library-feedback" class="flow-feedback" role="status" aria-live="polite"></p>
+    <div class="status-tabs" role="group" aria-label="Viewing status">
+      <button type="button" data-status="" aria-pressed="true">All <span data-count="">0</span></button>
+      <button type="button" data-status="plan_to_watch" aria-pressed="false">Watch later <span data-count="plan_to_watch">0</span></button>
+      <button type="button" data-status="watching" aria-pressed="false">Watching <span data-count="watching">0</span></button>
+      <button type="button" data-status="watched" aria-pressed="false">Watched <span data-count="watched">0</span></button>
+    </div>
+    <section class="library-tools" aria-label="Search and filter your library">
+      <label class="search-label" for="search"><span class="sr-only">Search title, genre, year or synopsis</span><input id="search" type="search" placeholder="Title, genre, year…"></label>
+      <div class="filter-row"><label for="format-filter"><span class="sr-only">Format</span><select id="format-filter"><option value="">All formats</option><option value="movie">Movies</option><option value="series">Series</option></select></label><input id="status-filter" type="hidden" value=""><label class="check-label"><input id="anime-filter" type="checkbox"> Anime</label><label class="check-label"><input id="liked-filter" type="checkbox"> Liked</label><button id="reset-filters" class="quiet-button" type="button">Reset</button></div>
+    </section>
+    <div class="results-heading"><p id="library-count" role="status" aria-live="polite">0 titles</p><div class="view-tools"><label class="sort-label" for="sort-order"><span class="sr-only">Sort titles</span><select id="sort-order"><option value="newest">Recently added</option><option value="title">Title A–Z</option></select></label><div class="view-toggle" role="group" aria-label="Library layout"><button id="view-grid" type="button" aria-pressed="true" aria-label="Grid view" title="Grid view"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button><button id="view-list" type="button" aria-pressed="false" aria-label="List view" title="List view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h13M8 12h13M8 19h13M3 5h1M3 12h1M3 19h1"/></svg></button></div></div></div>
+    <div id="library-grid" class="library-grid" data-view="grid"></div>
+    <div id="empty-library" class="empty-library"><h2>No titles yet</h2><div class="empty-actions"><button id="first-title" type="button">+ Add title</button><a class="secondary-button" href="index.html">Find something</a><a class="secondary-button" href="import.html">Import TXT</a></div></div>
+    <div id="no-results" class="empty-library" hidden><h2>No matches</h2><p>Try another search or reset your filters.</p></div>
+  </main>
+  <dialog id="title-dialog" aria-labelledby="dialog-heading">
+    <form id="title-form">
+      <div class="dialog-heading"><h2 id="dialog-heading">Add title</h2><button id="close-dialog" class="quiet-button dialog-close" type="button" aria-label="Close title dialog" title="Close"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <p class="search-credit" id="search-note"><a href="setup.html#credits" aria-label="TMDB credits"><img src="assets/tmdb.svg" alt="TMDB" width="60"></a><span>Choose a match</span></p>
+      <label for="entry-title">Search<input id="entry-title" name="title" type="text" role="combobox" aria-autocomplete="list" aria-controls="title-matches" aria-expanded="false" aria-describedby="match-feedback search-note" required maxlength="200" autocomplete="off" placeholder="Movie or series"></label>
+      <div class="match-status"><p id="match-feedback" class="note" role="status" aria-live="polite"></p><button id="retry-search" type="button" class="quiet-button" hidden>Retry</button></div>
+      <div id="title-matches" class="title-matches" role="listbox" aria-label="Title matches" hidden></div>
+      <div id="title-confirmation" hidden>
+        <div id="details-cover" class="selected-title"></div>
+        <p id="selected-meta" hidden></p><input id="entry-format" name="format" type="hidden">
+        <div class="title-controls"><label for="entry-status">Status<select id="entry-status" name="status" required><option value="">Choose status</option><option value="untracked">Not tracked</option><option value="plan_to_watch">Watch later</option><option value="watching">Watching</option><option value="watched">Watched</option></select></label><details class="tag-options"><summary>Tags</summary><label class="check-label"><input id="entry-anime" name="anime" type="checkbox"> Anime</label><p class="note">A tag, not a format.</p></details></div>
+        <label class="check-label"><input id="entry-liked" name="liked" type="checkbox"> I like this title</label>
+        <p class="note">Likes help steer random picks. They do not mark a title watched.</p>
+        <div id="entry-rating"></div>
+      </div>
+      <button id="save-title" type="submit" disabled>Add title</button>
+    </form>
+  </dialog>
+</body>
+</html>

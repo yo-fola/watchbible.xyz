@@ -1,0 +1,8 @@
+- [x] Example Movie One
+- [ ] Example Movie Two
+Example Series One
+- [x] Example Anime Film
+- [ ] Example Series Two
+Example Movie Three
+- [x] Example Movie Four
+- [ ] Example Anime Series

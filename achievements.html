@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — Achievements</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="gamification.css">
+  <script type="module" src="achievements.mjs"></script>
+</head>
+<body class="site achievements-page gamification-page">
+  <a class="skip-link" href="#main-content">Skip to achievements</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <div id="achievements-root">
+      <header class="library-header"><h1>Achievements</h1><a class="secondary-button" href="profile.html">Your profile</a></header>
+      <p class="gamification-intro">Milestones from your confirmed watched movies. No streaks, no deadlines.</p>
+      <p id="achievements-feedback" class="flow-feedback" role="status" aria-live="polite">Loading local achievements…</p>
+      <a id="achievements-recovery" href="setup.html#backup-heading" hidden>Open Settings to export recoverable data or restore a backup</a>
+      <div id="achievements-data" hidden>
+        <div class="achievement-overview"><p id="achievements-summary"></p><a href="collections.html">Explore collections →</a></div>
+        <div class="achievement-filters" role="group" aria-label="Filter achievements">
+          <label for="achievement-family">Family<select id="achievement-family"><option value="">All families</option><option value="franchise">Franchise</option><option value="genre">Genre</option><option value="type">Type</option></select></label>
+          <label for="achievement-status">Progress<select id="achievement-status"><option value="">All progress</option><option value="earned">Earned</option><option value="in-progress">In progress</option><option value="locked">Locked</option></select></label>
+        </div>
+        <p id="achievement-results" class="flow-feedback" role="status" aria-live="polite"></p>
+        <div id="achievement-groups" class="achievement-groups"></div>
+        <div id="achievements-empty" class="empty-library" hidden><h2>No achievements match</h2><p>Try a different family or progress filter.</p><div class="actions"><button id="reset-achievement-filters" class="quiet-button" type="button">Reset filters</button></div></div>
+        <p class="note achievement-rules-note">Counts use distinct confirmed watched movies, including existing history. XP recognition is separate. Series and inferred episode completions do not earn these badges. Anime requires an explicit tag.</p>
+        <p class="note correction-notice">Correcting viewing history can change qualifying badges. A new release alone does not revoke an earned versioned completion award.</p>
+      </div>
+      <noscript><p>JavaScript is required to read your local achievements. Your saved data has not changed.</p></noscript>
+    </div>
+  </main>
+</body>
+</html>

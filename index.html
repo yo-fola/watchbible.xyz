@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>watchbible — For you</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="title-panel.css">
+  <link rel="stylesheet" href="home-pagination.css">
+  <script type="module" src="home.mjs"></script>
+</head>
+<body class="site home-page">
+  <a class="skip-link" href="#main-content">Skip to recommendations</a>
+  <header class="app-bar"><a class="brand" href="index.html">watchbible<span class="brand-dot" aria-hidden="true"></span></a><nav aria-label="Main navigation"><a href="index.html" aria-current="page">For you</a><a href="library.html">Library</a><a href="import.html">Import</a><a href="setup.html">Settings</a></nav></header>
+  <main id="main-content" tabindex="-1">
+    <header class="library-header"><h1 id="home-heading" tabindex="-1">For you</h1><div class="home-header-actions"><button id="what-to-watch" type="button" aria-haspopup="dialog" aria-controls="watch-picker">What to watch</button><a class="secondary-button" href="library.html?add=liked">Add likes</a><a class="secondary-button" href="onboarding.html?edit=1">Preferences</a></div></header>
+    <section class="library-tools" aria-label="Search current recommendations">
+      <label class="search-label" for="home-search"><span class="sr-only">Search current picks</span><input id="home-search" type="search" placeholder="Search picks by title, genre, year or synopsis"></label>
+      <label for="home-format"><span class="sr-only">Format</span><select id="home-format"><option value="">All formats</option><option value="movie">Movies</option><option value="series">Series</option></select></label>
+      <button id="home-refresh" class="quiet-button" type="button" aria-label="Refresh current recommendation page">Refresh</button>
+    </section>
+    <div class="results-heading"><p id="home-count" class="note" role="status"></p><a id="home-saved" class="note" href="library.html">Library</a></div>
+    <p id="home-feedback" class="discovery-feedback" role="status" aria-live="polite">Loading picks…</p>
+    <a id="home-recovery" href="setup.html" hidden>Open Settings to recover saved data</a>
+    <button id="home-retry" class="quiet-button" type="button" hidden>Retry</button>
+    <div id="home-grid" class="library-grid discovery-grid"></div>
+    <nav id="home-pagination" aria-label="Recommendation pages">
+      <button id="home-prev" class="quiet-button" type="button" aria-label="Previous recommendation page" disabled>← Previous</button>
+      <div id="home-page-numbers"></div>
+      <button id="home-next" class="quiet-button" type="button" aria-label="Next recommendation page" disabled>Next →</button>
+    </nav>
+  </main>
+  <dialog id="watch-picker" aria-labelledby="watch-picker-heading" aria-describedby="watch-picker-caption">
+    <header class="dialog-heading"><h2 id="watch-picker-heading" tabindex="-1">What to watch</h2><button id="watch-picker-close" class="dialog-close" type="button" aria-label="Close What to watch"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+    <p id="watch-picker-caption" class="note">A random pick, guided by your Likes and optional filters—not the next For you result. Pick another never saves or dislikes a title.</p>
+    <details class="watch-picker-filters"><summary>Optional filters</summary><div class="watch-picker-filter-row">
+      <label for="watch-picker-format">What are you in the mood for?<select id="watch-picker-format"><option value="">My preferred formats</option><option value="movie">Movie</option><option value="series">Series</option></select></label>
+      <label for="watch-picker-genre">Genre<select id="watch-picker-genre"><option value="">My genre preferences</option></select></label>
+      <button id="watch-picker-apply" class="quiet-button" type="button">Apply filters</button>
+    </div></details>
+    <p id="watch-picker-status" role="status" aria-live="polite"></p>
+    <div id="watch-picker-result"></div>
+    <div class="watch-picker-actions"><button id="watch-picker-next" type="button">Pick another</button><button id="watch-picker-retry" class="quiet-button" type="button" hidden>Retry</button></div>
+    <p class="note"><a href="library.html?add=liked">Add movies or series you like →</a> to help steer future picks.</p>
+    <p class="watch-picker-credit note">Catalogue and artwork: TMDB. Suggestions are not added to your library.</p>
+  </dialog>
+</body>
+</html>

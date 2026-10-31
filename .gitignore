@@ -1,0 +1,30 @@
+# Local state and credentials (all depths)
+.watchbible/
+.env
+.env.*
+*.pem
+*.key
+
+# Private working material
+backups/
+artifacts/
+plans/
+HANDOFF.md
+AGENTS.md
+/examples/notes-import.txt
+watchbible-backup-*.json
+watchbible-export-*.json
+exports/
+downloads/
+/gui-verification.json
+
+# Generated files
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+logs/
+node_modules/
+.launcher-test-*/
+.credential-test-*/
+.setup-token-test-*/
